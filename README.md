@@ -23,3 +23,5 @@ test09
 強調表示1 *abc*  
 強調表示2 **abc**  
 ※改行は末尾に半角スペース2つ
+
+<img src="force_1.jpg" alt="force_1" title="attach:cat" width="200" height="200">
