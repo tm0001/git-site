@@ -18,4 +18,4 @@ test09
 
 [Google](https://www.google.co.jp/)
 
-[伝助] (http://densuke.biz/list?cd=gzPs2UsaJp2Tsf4s)
+[伝助](http://densuke.biz/list?cd=gzPs2UsaJp2Tsf4s)
