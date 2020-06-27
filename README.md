@@ -20,5 +20,5 @@ test09
 
 [伝助](http://densuke.biz/list?cd=gzPs2UsaJp2Tsf4s)
 
-強調表示1 *abc*
+強調表示1 *abc*  
 強調表示2 **abc**
