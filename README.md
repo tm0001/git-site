@@ -24,7 +24,6 @@ test09
 強調表示2 **abc**  
 ※改行は末尾に半角スペース2つ
 
-![alt](force_1.jpg)
-<img src="force_1.jpg" alt="force_1" title="attach:cat" width="200" height="200">
-
-![force_1](https://user-images.githubusercontent.com/65782354/85925975-eb650600-b8d6-11ea-9080-bbb41c197165.jpg)
+![force_1](https://user-images.githubusercontent.com/65782354/85925975-eb650600-b8d6-11ea-9080-bbb41c197165.jpg)  
+※簡単な画像の貼り付け方  
+ https://qiita.com/ROY_M/items/2c4feb5de05535441bc8
