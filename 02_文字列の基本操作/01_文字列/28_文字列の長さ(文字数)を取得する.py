@@ -1,0 +1,5 @@
+print("組み込み関数の「len関数」は引数に指定したオブジェクトの長さや要素の数を取得することができます")
+len("Hello")
+len("東京都")
+print("Hello の文字数は " + str(len("Hello")))
+print("東京都 の文字数は " + str(len("東京都")))

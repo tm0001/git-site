@@ -1,0 +1,25 @@
+print("文字列ではインデックスを指定することで指定した位置の文字を取得することができます")
+print("スライス機能を使用することで開始位置から終了位置までの指定した範囲にある部分文字列を取得することができます")
+print('\n', end='')
+str = "FLOWER"
+print(str[1:4])
+print(str[0:5])
+print('\n', end='')
+print("また、開始インデックスを省略して表記した場合、システム的に開始インデックスは0が指定されたものとみなされ処理されます")
+otoja = "anija"
+print(otoja[:3])
+print(otoja[:1])
+print('\n', end='')
+print("終了インデックスを省略して表記した場合は、システム的に文字列の最後まで取得するとみなされ処理が行われます")
+baiohazard = "Jil Valentine"
+print(baiohazard[4:])
+print(baiohazard[1:])
+print('\n', end='')
+print('\n', end='')
+print('\n', end='')
+print("ステップ数の指定も可能です")
+yamagata01 = "山形県酒田市豊里字大割4-15"
+print(yamagata01)
+print(yamagata01[1:10])
+print(yamagata01[1:10:2])
+print(yamagata01[1:10:3])
