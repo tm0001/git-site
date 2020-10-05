@@ -1,0 +1,395 @@
+-----
+* 200 キャパシティプランニング
+1. リソース使用量の測定とトラブルシューティング（総重量6）
+  ▽前提知識
+    CPU使用率を測定する
+    メモリ使用量を測定する
+    ディスクI / Oを測定する
+    ネットワークI / Oを測定する
+    ファイアウォールとルーティングのスループットを測定する
+    クライアントの帯域幅使用量を識別する
+    問題の可能性があるシステムの症状を識別して修正する
+    ネットワーキングを含むシステムのスループットを見積もり、ボトルネックを特定する
+
+  ▼コマンド群
+    iostat
+    netstat
+    w
+    top
+    sar
+    I/Oでブロックするプロセス
+    ブロックの書き出し
+    vmstat
+    pstree、ps
+    Isof
+    uptime
+    swap
+    ブロックの読み込み
+
+2. 未来の資源ニーズを予測する（総重量2）
+  ▽前提知識
+    監視および測定ツールを使用して、ITインフラストラクチャの使用状況を監視する
+    構成における容量のブレークポイントを予測する
+    容量使用率の増加率を観察する
+    容量使用の傾向をグラフ表示する
+    Icinga2、Nagios、collectd、MRTG、Cactiなどの監視ソリューションに対する理解
+
+
+-----
+* 201 Linuxカーネル
+1. カーネルコンポーネント（総重量2）
+  ▽前提知識
+    カーネル2.6.x、3.x、4.xのドキュメント
+
+  ▼コマンド群
+    /usr/src/linux/
+    /usr/src/linux/Documentation/
+    zImage
+    bzImage
+    xz圧縮
+
+2. カーネルのコンパイル（総重量3）
+  ▽前提知識
+    /usr/src/linux/
+    カーネルのMakefiles
+    カーネル2.6.x / 3.xのターゲットをmakeする
+    現在のカーネル構成をカスタマイズする
+    新しいカーネルと適切なカーネルモジュールをビルドする
+    新しいカーネルとモジュールをインストールする
+    ブートマネージャーが新しいカーネルと関連ファイルを見つけることができることを確認する
+    モジュール構成ファイル
+    DKMSを使用してカーネルモジュールをコンパイルする
+    dracutに関する知識
+
+  ▼コマンド群
+    mkinitrd
+    mkinitramfs
+    make
+    make targets (all, config, xconfig, menuconfig, gconfig, oldconfig, mrproper, zImage, bzImage, modules, modules_install, rpm-pkg, binrpm-pkg, deb-pkg)
+    gzip
+    bzip2
+    module tools
+    /usr/src/linux/.config
+    /lib/modules/kernel-version/
+    depmod
+    dkms
+
+3. カーネルランタイム管理とトラブルシューティング（総重量4）
+  ▽前提知識
+    コマンドラインユーティリティを使用して、現在実行中のカーネルお​​よびカーネルモジュールに関する情報を取得する
+    カーネルモジュールの手動ロードとアンロード
+    いつモジュールをアンロードできるかを決定する
+    モジュールが受け入れるパラメータを決定する
+    ファイル名以外の名前でモジュールをロードするようにシステムを構成する
+    /procファイルシステム
+    /、/boot/、/lib /modules /の内容
+    利用可能なハードウェアに関する情報を分析するためのツールとユーティリティ
+    udevルール
+
+  ▼コマンド群
+    /lib/modules/kernel-version/modules.dep
+    /etc/にある、モジュールの設定ファイル。
+    /proc/sys/kernel/
+    /sbin/depmod
+    /sbin/rmmod
+    /sbin/modinfo
+    /bin/dmesg
+    /sbin/lspci
+    /usr/bin/lsdev
+    /sbin/lsmod
+    /sbin/modprobe
+    /sbin/insmod
+    /bin/uname
+    /usr/bin/lsusb
+    /etc/sysctl.conf、/etc/sysctl.d/
+    /sbin/sysctl
+    udevmonitor
+    udevadm モニタ
+    /etc/udev/
+
+
+-----
+* 202 システム起動
+1. SysV-initシステムの起動をカスタマイズする
+  ▽前提知識
+    Systemd
+    SysV init
+    Linux標準ベース仕様（LSB）
+
+  ▼コマンド群
+    /usr/lib/systemd/
+    /etc/systemd/
+    /run/systemd/
+    systemctl
+    systemd-delta
+    /etc/inittab
+    /etc/init.d/
+    /etc/rc.d/
+    chkconfig
+    update-rc.d
+    init と telinit
+
+2. システムの復旧
+  ▽前提知識
+    BIOSとUEFI
+    NVMeの起動
+    GRUBバージョン2とLegacy
+    grub shell
+    ブートローダーの起動とカーネルへのハンドオフ
+    カーネルロード
+    ハードウェアの初期化とセットアップ
+    デーモン/サービスの初期化とセットアップ
+    ハードディスクまたはリムーバブルデバイスにおける、様々なブートローダのインストール位置に関する知識
+    ブートローダの標準オプションを上書きして、ブートローダシェルを使用する
+    systemdのレスキューモードと緊急モードの利用
+
+  ▼コマンド群
+    mount
+    fsck
+    inittab、 telinit、および、SysV initを含むinit
+    /boot/, /boot/grub/ および /boot/efi/ の内容
+    EFIシステムパーティション（ESP）
+    GRUB
+    grub-install
+    efibootmgr
+    UEFI シェル
+    initrd、initramfs
+    Master boot record
+    systemctl
+
+3. 代替ブートローダ
+  ▽前提知識
+    SYSLINUX、ISOLINUX、PXELINUX
+    BIOSとUEFIの両方におけるPXEの理解
+    systemd-bootとU-Bootへの理解
+
+  ▼コマンド群
+    syslinux
+    extlinux
+    isolinux.bin
+    isolinux.cfg
+    isohdpfx.bin
+    efiboot.img
+    pxelinux.0
+    pxelinux.cfg/
+    uefi/shim.efi
+    uefi/grubx64.efi
+
+
+-----
+* 203 ファイルシステムとデバイス
+1. Linuxファイルシステムの操作
+  ▽前提知識
+    fstab構成の概念
+    スワップパーティションとファイルを扱うためのツールとユーティリティ
+    ファイルシステムの識別とマウントにUUIDを使用する
+    systemdにおけるマウント・ユニットの理解
+
+  ▼コマンド群
+    /etc/fstab
+    /etc/mtab
+    /proc/mounts
+    mount と umount
+    blkid
+    sync
+    swapon
+    swapoff
+
+
+2. Linuxファイルシステムの管理
+  ▽前提知識
+    ext2、ext3、ext4を操作するためのツールとユーティリティ
+    サブボリュームとスナップショットを含む基本的なBtrfs操作を実行するためのツールとユーティリティ
+    XFSを操作するためのツールとユーティリティ
+    ZFSに対する知識
+
+  ▼コマンド群
+    mkfs (mkfs.*)
+    mkswap
+    fsck (fsck.*)
+    tune2fs, dumpe2fs and debugfs
+    btrfs、btrfs-convert
+    xfs_info, xfs_check, xfs_repair, xfsdump and xfsrestore
+    smartd、smartctl
+
+3. ファイルシステムオプションの作成と設定
+  ▽前提知識
+    autofs設定ファイル
+    オートマウントユニットの理解
+    UDFおよびISO9660ツールおよびユーティリティ
+    他のCD-ROMファイルシステム（HFS）の理解
+    CD-ROMファイルシステム拡張の認識（Joliet、Rock Ridge、El Torito）
+    データ暗号化の基本的な機能知識（dm-crypt / LUKS）
+
+  ▼コマンド群
+    /etc/auto.master
+    /etc/auto.[dir]
+    mkisofs
+    cryptsetup
+
+
+-----
+* 204 高度なストレージデバイスの管理
+1. RAIDの設定
+  ▽前提知識
+    ソフトウェアRAID構成ファイルとユーティリティ
+
+  ▼コマンド群
+    mdadm.conf
+    mdadm
+    /proc/mdstat
+    パーティションタイプ 0xFD
+
+2. ストレージデバイスのアクセスを調整する
+  ▽前提知識
+    ATAPIおよびSATAを含むIDEデバイス用のDMAを構成するツールおよびユーティリティ
+    AHCIおよびNVMeを含むソリッド・ステート・ドライブを構成するツールおよびユーティリティ
+    システムリソースを操作または分析するツールおよびユーティリティ（割り込みなど）
+    sdparmコマンドの知識とその使用法
+    iSCSI用のツールとユーティリティ
+    関連するプロトコル（AoE、FCoE）を含むSANの認識
+
+  ▼コマンド群
+    hdparm、sdparm
+    nvme
+    tune2fs
+    fstream
+    sysctl
+    /dev/hd*, /dev/sd*, /dev/nvme*
+    iscsiadm, scsi_id, iscsid and iscsid.conf
+    WWID, WWN, LUN numbers
+
+3. 論理ボリュームマネージャ
+  ▽前提知識
+    LVMツールのスイート
+    論理ボリューム、ボリュームグループ、物理ボリュームのサイズ変更、名称変更、作成、削除
+    スナップショットの作成と保守
+    ボリュームグループの有効化
+
+  ▼コマンド群
+    /sbin/pv*
+    /sbin/lv*
+    /sbin/vg*
+    mount
+    /dev/mapper/
+    lvm.conf
+
+
+-----
+* 205 ネットワーク設定
+1. 基本的なネットワーク設定
+  ▽前提知識
+    イーサネットインターフェイスを設定および操作するユーティリティ
+    ワイヤレスネットワークへの基本アクセスの設定
+
+  ▼コマンド群
+    ip
+    ifconfig
+    route
+    arp
+    iw
+    iwconfig
+    iwlist
+
+2. 高度なネットワーク構成とトラブルシューティング
+  ▽前提知識
+    ルーティングテーブルを操作するユーティリティ
+    イーサネットインターフェイスを設定および操作するユーティリティ
+    ネットワークデバイスの状態を分析するユーティリティ
+    TCP / IPトラフィックを監視および分析するためのユーティリティ
+
+  ▼コマンド群
+    ip
+    ifconfig
+    route
+    arp
+    ss
+    netstat
+    lsof
+    ping, ping6
+    nc
+    tcpdump
+    nmap
+
+3. ネットワークの問題のトラブルシューティング
+  ▽前提知識
+    アクセス制限ファイルの場所と内容
+    イーサネットインターフェイスを設定および操作するユーティリティ
+    ルーティングテーブルを管理するユーティリティ
+    ネットワーク状態を一覧表示するユーティリティ。
+    ネットワーク構成に関する情報を得るユーティリティ
+    認識され使用されているハードウェアデバイスに関する情報の表示
+    システム初期化ファイルとその内容（SysV initプロセス）
+    NetworkManagerの知識とネットワーク構成への影響
+
+  ▼コマンド群
+    ip
+    ifconfig
+    route
+    ss
+    netstat
+    /etc/network/, /etc/sysconfig/network-scripts/
+    ping, ping6
+    traceroute, traceroute6
+    mtr
+    hostname
+    /var/log/syslog, /var/log/messages などのシステムログと、システムジャーナル
+    dmesg
+    /etc/resolv.conf
+    /etc/hosts
+    /etc/hostname, /etc/HOSTNAME
+    /etc/hosts.allow、/etc/hosts.deny
+
+
+
+-----
+* 206 システムメンテナンス
+1. ソースからプログラムを作成してインストール
+  ▽前提知識
+    一般的な圧縮およびアーカイブユーティリティを使用してソースコードを展開する
+    makeを呼び出してプログラムをコンパイルする基本を理解する
+    configureスクリプトにパラメータを適用する
+    ソースがデフォルトで保存されている場所に関する知識
+
+  ▼コマンド群
+    / usr / src /
+    gunzip
+    gzip
+    bzip2
+    xz
+    tar
+    configure
+    make
+    uname
+    install
+    patch
+
+2. バックアップ操作
+  ▽前提知識
+    バックアップに含める必要のあるディレクトリに関する知識
+    Amanda、Bacula、Bareos、BackupPCなどのネットワークバックアップソリューションに関する知識
+    テープ、CDR、ディスクまたはその他のバックアップメディアの利点と欠点に関する知識
+    部分バックアップと手動バックアップを実行する
+    バックアップファイルの整合性を検証する
+    バックアップの一部または全部をリストアする
+
+  ▼コマンド群
+    /bin/sh
+    dd
+    tar
+    /dev/st* と /dev/nst*
+    mt
+    rsync
+
+3. システム関連の問題についてユーザーに通知する
+  ▽前提知識
+    ログオンメッセージを通じて自動的にユーザーに通知する
+    アクティブなユーザにシステムメンテナンスを知らせる
+
+  ▼コマンド群
+    /etc/issue
+    /etc/issue.net
+    /etc/motd
+    wall
+    /sbin/shutdown
+    systemctl
